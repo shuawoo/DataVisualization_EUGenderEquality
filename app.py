@@ -12,7 +12,7 @@ st.set_page_config(layout="wide")
 
 
 #####################################
-###########   Layout    #############
+###########   Intro    ##############
 #####################################
 
 # h1 title
@@ -38,16 +38,20 @@ st.write(" ")
 st.write(" ")
 st.write(" ")
 
+# xiugai1
 
+st.markdown("<span style='font-size:18px;'>Over the years, the European Union has made progress in gender equality. However, we also recognize that this progress remains insufficient, and the achievements are to some extent fragile. Currently, only Sweden, with a score exceeding 80, is advancing in gender equality.</span>", unsafe_allow_html=True)
+st.write(" ")
 
 
 #####################################
 ##########   PART  1    #############
 #####################################
 
+
 # Load Data #
 # Gender Equality Index 性别平等指数导入
-index_file = pd.ExcelFile('index_file.xlsx')  # Update with the correct file path
+index_file = pd.ExcelFile('/Users/wangjiuduo/Desktop/DV2/index_file.xlsx')  # Update with the correct file path
 
 # Creating a dictionary to hold dataframes
 dfs = {}
@@ -86,7 +90,7 @@ eu_index_chart = alt.Chart(index_eu).mark_line(point=True, color="purple").encod
     title='EU Gender Equality Index Over Time',
     width=750,
     height=550
-).add_params(brush)
+).add_selection(brush)
 
 # Create the ranking chart that will show the average index per country with gradient colors
 # The tooltip will display the average index and country
@@ -117,7 +121,7 @@ part1 = alt.hconcat(eu_index_chart, ranking_chart).resolve_scale(color='independ
 # H2 title
 style_h2 = """
 <style>
-#eu-gender-equality-at-a-glance {
+#overview-of-eu-gender-equality-in-the-past-decade {
     text-align: center;
     font-size: 35px;
     text-align: left;
@@ -126,11 +130,22 @@ style_h2 = """
 </style>
 """
 st.markdown(style_h2, unsafe_allow_html=True)
-st.markdown("<h2>EU Gender Equality at A Glance</h2>", unsafe_allow_html=True)
+st.markdown("<h2>Overview of  EU Gender Equality in the Past Decade</h2>", unsafe_allow_html=True)
+
+# xiugai2
+st.markdown("<span style='font-size:18px;'>From the overall trend of the EU Gender Equality Index, the evolution of gender equality over the past decade is demonstrated with the internal rankings of EU members.</span>", unsafe_allow_html=True)
+st.write(" ")
+st.write(" ")
 
 # Display the charts using Streamlit
 st.altair_chart(part1, use_container_width=True)
 
+#xiugai3
+st.caption('<p style="font-size: 12px; color: grey;">Slide to select an interval on the left and compare the average index of it on the right; Hover on the chart element to read values.The European Union Gender Equality Index rates the EU and its member states on a scale from 1 to 100. The scoring criteria include six dimensions: Work, Money, Knowledge, Time, Power, and Health. Data for the index usually comes from 2-3 years prior to the current year.</p>', unsafe_allow_html=True)
+
+st.write(" ")
+st.write(" ")
+st.write(" ")
 st.write(" ")
 st.write(" ")
 st.write(" ")
@@ -142,10 +157,11 @@ st.write(" ")
 ##########   PART  2    #############
 #####################################
 
+#xiugai-5
 # H2 title
 style_h2 = """
 <style>
-#eu-gender-equality-at-a-glance {
+#gender-equality-from-different-perspectives {
     text-align: center;
     font-size: 35px;
     text-align: left;
@@ -154,7 +170,10 @@ style_h2 = """
 </style>
 """
 st.markdown(style_h2, unsafe_allow_html=True)
-st.markdown("<h2>EU Gender Equality at A Glance</h2>", unsafe_allow_html=True)
+st.markdown("<h2>Gender Equality from Different Perspectives</h2>", unsafe_allow_html=True)
+st.write(" ")
+st.markdown("<span style='font-size:18px;'>Starting from specific dimensions of the Gender Equality Index, we can observe the detailed performance of each EU member from various measurements.</span>", unsafe_allow_html=True)
+st.write(" ")
 
 countryname_mapping = {
     'BE': 'Belgium',
@@ -719,22 +738,18 @@ part2_health = alt.hconcat(map_chart_health, country_chart_health).properties(
 
 # dropdown
 # 设置字体大小为20px
-selectbox_style = """
-<style>
-p {
-    font-size: 22px !important;
-}
-</style>
-"""
 
+#xiugai4
 # 将 CSS 样式应用到页面中
-st.markdown(selectbox_style, unsafe_allow_html=True)
 
 # 显示 selectbox
 option = st.selectbox(
     'Choose A Dimension to Dive in:',
     ['WORK', 'MONEY', 'KNOWLEDGE', 'TIME', 'POWER', 'HEALTH']
 )
+
+#xiugai6
+st.caption('<p style="font-size: 12px; color: grey;">Click to select a country on the left and observe its detailed evolution of index on a specified dimension on the right, bar chart for index and line chart for ranking.</p>', unsafe_allow_html=True)
 
 
 # 定义显示图表的函数
@@ -760,10 +775,11 @@ display_chart(option)
 ##########   PART  3    #############
 #####################################
 
+#xiugai7
 # H2 title
 style_h2 = """
 <style>
-#more-you-may-want-to-know {
+#comprehensive-indicators-for-individual-countries {
     text-align: center;
     font-size: 35px;
     text-align: left;
@@ -772,7 +788,10 @@ style_h2 = """
 </style>
 """
 st.markdown(style_h2, unsafe_allow_html=True)
-st.markdown("<h2>More You May Want to Know ...</h2>", unsafe_allow_html=True)
+st.markdown("<h2>Comprehensive Indicators for Individual Countries</h2>", unsafe_allow_html=True)
+st.write(" ")
+st.markdown("<span style='font-size:18px;'>A set of charts are displayed for each EU member to explore their performance and track their gender equality development in detail, which are also included as the sub-indicators in Gender Equality Index.</span>", unsafe_allow_html=True)
+st.write(" ")
 
 import streamlit as st
 import pandas as pd
@@ -877,6 +896,11 @@ def on_country_change(country_name):
 # 注册回调函数
 on_country_change(country_dropdown)
 
+#xiugai8
+st.caption('<p style="font-size: 12px; color: grey;">Choose a country to see the detailed measurements of different dimensions to compare their contribution; Zoom in/out for adjusting the index axis</p>', unsafe_allow_html=True)
+st.caption('<p style="font-size: 12px; color: grey;">Data Source: European Institute for Gender Equality (EIGE) </p>', unsafe_allow_html=True)
+st.write(" ")
+st.write(" ")
 
 
 #####################################
