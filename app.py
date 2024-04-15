@@ -170,7 +170,7 @@ style_h2 = """
 </style>
 """
 st.markdown(style_h2, unsafe_allow_html=True)
-st.markdown("<h2>Gender Equality from Different Dimensions Across EU Countries</h2>", unsafe_allow_html=True)
+st.markdown("<h2>Gender Equality from Different Dimensions across EU Countries</h2>", unsafe_allow_html=True)
 st.write(" ")
 st.markdown("<span style='font-size:18px;'>Starting from specific dimensions of the Gender Equality Index, we can observe the detailed performance of each EU member from various measurements.</span>", unsafe_allow_html=True)
 st.write(" ")
@@ -280,7 +280,7 @@ map_chart_work = alt.Chart(world_map).mark_geoshape(
     clipExtent= [[300, 0], [800, 600]]
 ).properties(width=600, 
              height=600,
-             title='2023 Work Index Across EU Countries'
+             title='2023 Work Index across EU Countries'
 )
 
 
@@ -372,7 +372,7 @@ map_chart_money = alt.Chart(world_map).mark_geoshape(
     clipExtent= [[300, 0], [800, 600]]
 ).properties(width=600, 
              height=600,
-             title='2023 Money Index Across EU Countries'
+             title='2023 Money Index across EU Countries'
 )
 
 # 添加选择交互
@@ -458,7 +458,7 @@ map_chart_knowledge = alt.Chart(world_map).mark_geoshape(
     clipExtent= [[300, 0], [800, 600]]
 ).properties(width=600, 
              height=600,
-             title='2023 Knowledge Index Across EU Countries'
+             title='2023 Knowledge Index across EU Countries'
 )
 
 # 添加选择交互
@@ -540,7 +540,7 @@ map_chart_time = alt.Chart(world_map).mark_geoshape(
     clipExtent= [[300, 0], [800, 600]]
 ).properties(width=600, 
              height=600,
-             title='2023 Time Index Across EU Countries'
+             title='2023 Time Index across EU Countries'
 )
 
 # 添加选择交互
@@ -621,7 +621,7 @@ map_chart_power = alt.Chart(world_map).mark_geoshape(
     clipExtent= [[300, 0], [800, 600]]
 ).properties(width=600, 
              height=600,
-             title='2023 Power Index Across EU Countries'
+             title='2023 Power Index across EU Countries'
 )
 
 # 添加选择交互
@@ -702,7 +702,7 @@ map_chart_health = alt.Chart(world_map).mark_geoshape(
     clipExtent= [[300, 0], [800, 600]]
 ).properties(width=600, 
              height=600,
-             title='2023 Health Index Across EU Countries'
+             title='2023 Health Index across EU Countries'
 )
 
 # 添加选择交互
