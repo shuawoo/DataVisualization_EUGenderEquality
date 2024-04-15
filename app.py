@@ -159,7 +159,7 @@ st.write(" ")
 
 #xiugai-5
 # H2 title
-style_h2 = """
+style_h2 = 
 <style>
 #gender-equality-from-different-perspectives {
     text-align: center;
@@ -168,7 +168,7 @@ style_h2 = """
     color: purple;
 }
 </style>
-"""
+
 st.markdown(style_h2, unsafe_allow_html=True)
 st.markdown("<h2>Gender Equality from Different Dimensions across EU Countries</h2>", unsafe_allow_html=True)
 st.write(" ")
