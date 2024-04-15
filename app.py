@@ -280,7 +280,7 @@ map_chart_work = alt.Chart(world_map).mark_geoshape(
     clipExtent= [[300, 0], [800, 600]]
 ).properties(width=600, 
              height=600,
-             title='Work Index'
+             title='2023 Work Index Across EU Countries'
 )
 
 
@@ -312,7 +312,8 @@ country_chart_work = (bar_chart_work + line_chart_work).resolve_scale(
     y='independent'  
 ).properties(
     width=400,
-    height=300
+    height=300,
+    title = 'Index and Ranking of Selected Country over Time'
 )
 
 # 组合图表
@@ -371,7 +372,7 @@ map_chart_money = alt.Chart(world_map).mark_geoshape(
     clipExtent= [[300, 0], [800, 600]]
 ).properties(width=600, 
              height=600,
-             title='MONEY Index'
+             title='2023 Money Index Across EU Countries'
 )
 
 # 添加选择交互
@@ -401,7 +402,8 @@ country_chart_money = (bar_chart_money + line_chart_money).resolve_scale(
     y='independent'  
 ).properties(
     width=400,
-    height=300
+    height=300,
+    title = 'Index and Ranking of Selected Country over Time'
 )
 
 # 组合图表
@@ -456,7 +458,7 @@ map_chart_knowledge = alt.Chart(world_map).mark_geoshape(
     clipExtent= [[300, 0], [800, 600]]
 ).properties(width=600, 
              height=600,
-             title='KNOWLEDGE Index'
+             title='2023 Knowledge Index Across EU Countries'
 )
 
 # 添加选择交互
@@ -486,7 +488,8 @@ country_chart_knowledge = (bar_chart_knowledge + line_chart_knowledge).resolve_s
     y='independent'  
 ).properties(
     width=400,
-    height=300
+    height=300,
+    title = 'Index and Ranking of Selected Country over Time'
 )
 
 # 组合图表
@@ -537,7 +540,7 @@ map_chart_time = alt.Chart(world_map).mark_geoshape(
     clipExtent= [[300, 0], [800, 600]]
 ).properties(width=600, 
              height=600,
-             title='TIME Index'
+             title='2023 Time Index Across EU Countries'
 )
 
 # 添加选择交互
@@ -567,7 +570,8 @@ country_chart_time = (bar_chart_time + line_chart_time).resolve_scale(
     y='independent'  
 ).properties(
     width=400,
-    height=300
+    height=300,
+    title = 'Index and Ranking of Selected Country over Time'
 )
 
 # 组合图表
@@ -617,7 +621,7 @@ map_chart_power = alt.Chart(world_map).mark_geoshape(
     clipExtent= [[300, 0], [800, 600]]
 ).properties(width=600, 
              height=600,
-             title='POWER Index'
+             title='2023 Power Index Across EU Countries'
 )
 
 # 添加选择交互
@@ -643,15 +647,16 @@ line_chart_power = alt.Chart(power_all).mark_line(point=True, color='purple').en
     select_country
 )
 
-country_chart_health = (bar_chart_power + line_chart_power).resolve_scale(
+country_chart_power = (bar_chart_power + line_chart_power).resolve_scale(
     y='independent'  
 ).properties(
     width=400,
-    height=300
+    height=300,
+    title = 'Index and Ranking of Selected Country over Time'
 )
 
 # 组合图表
-part2_power = alt.hconcat(map_chart_power, country_chart_health).properties(
+part2_power = alt.hconcat(map_chart_power, country_chart_power).properties(
     config=alt.Config(legend=alt.LegendConfig(orient='left'))
 )
 
@@ -697,7 +702,7 @@ map_chart_health = alt.Chart(world_map).mark_geoshape(
     clipExtent= [[300, 0], [800, 600]]
 ).properties(width=600, 
              height=600,
-             title='HEALTH Index'
+             title='2023 Health Index Across EU Countries'
 )
 
 # 添加选择交互
@@ -727,7 +732,8 @@ country_chart_health = (bar_chart_health + line_chart_health).resolve_scale(
     y='independent'  
 ).properties(
     width=400,
-    height=300
+    height=300,
+    title = 'Index and Ranking of Selected Country over Time'
 )
 
 # concat
@@ -907,9 +913,9 @@ st.write(" ")
 ###########   Outro    ##############
 #####################################
 
-ty_column = st.columns([1])
-ty_note = st.columns([1])[0]
-ty_note.metric(label="Thank you for making Gender Equality forward", value="", delta="1 more step")
+#ty_column = st.columns([1])
+#ty_note = st.columns([1])[0]
+#ty_note.metric(label="Thank you for making Gender Equality forward", value="", delta="1 more step")
 
 
 
