@@ -27,7 +27,7 @@ style_h1 = """
 </style>
 """
 
-# 使用Markdown显示样式化标题
+# markdown title
 st.markdown(style_h1, unsafe_allow_html=True)
 st.markdown("<h1>Unveiling the Evolution : EU Gender Equality in 10 Years</h1>", unsafe_allow_html=True)
 
@@ -38,7 +38,6 @@ st.write(" ")
 st.write(" ")
 st.write(" ")
 
-# xiugai1
 
 st.markdown("<span style='font-size:18px;'>Over the years, the European Union has made progress in gender equality. However, we also recognize that this progress remains insufficient, and the achievements are to some extent fragile. Currently, only Sweden, with a score exceeding 80, is advancing in gender equality.</span>", unsafe_allow_html=True)
 st.write(" ")
@@ -50,7 +49,7 @@ st.write(" ")
 
 
 # Load Data #
-# Gender Equality Index 性别平等指数导入
+# Gender Equality Index 
 index_file = pd.ExcelFile('index_file.xlsx')  # Update with the correct file path
 
 # Creating a dictionary to hold dataframes
@@ -263,10 +262,10 @@ import pandas as pd
 import altair as alt
 from vega_datasets import data
 
-# 创建地图
+# introduce map 
 world_map = alt.topo_feature(data.world_110m.url, 'countries')
 
-# 创建地图图表
+# create map 
 map_chart_work = alt.Chart(world_map).mark_geoshape(
     stroke='black'
 ).encode(
@@ -284,11 +283,11 @@ map_chart_work = alt.Chart(world_map).mark_geoshape(
 )
 
 
-# 添加选择交互
+# select country
 select_country = alt.selection_point(fields=['Country'], empty=False, value='EU')
 map_chart_work = map_chart_work.add_params(select_country)
 
-# 创建柱状图
+# bar chart
 bar_chart_work = alt.Chart(work_all).mark_bar(color='lavender').encode(
     x='year:N',
     y=alt.Y('WORK:Q', title='WORK Index', scale=alt.Scale(domain=[work_min-5, work_max+5], clamp=True)),
@@ -298,7 +297,7 @@ bar_chart_work = alt.Chart(work_all).mark_bar(color='lavender').encode(
     select_country
 )
 
-# 创建线图
+# line chart
 line_chart_work = alt.Chart(work_all).mark_line(point=True, color='purple').encode(
     x='year:N',
     y=alt.Y('rank:Q', axis=alt.Axis(title='Country Rank'), scale=alt.Scale(domain=[30, 0])),
@@ -316,10 +315,10 @@ country_chart_work = (bar_chart_work + line_chart_work).resolve_scale(
     title = 'Index and Ranking of Selected Country over Time'
 )
 
-# 组合图表
+# combine work chart
 part2_work = alt.hconcat(map_chart_work, country_chart_work) 
 
-# 在properties()中应用图例的配置
+# set properties
 part2_work = part2_work.properties(
     config=alt.Config(legend=alt.LegendConfig(orient='left'))
 )
@@ -355,10 +354,10 @@ import pandas as pd
 import altair as alt
 from vega_datasets import data
 
-# 创建地图
+# introduce map 
 world_map = alt.topo_feature(data.world_110m.url, 'countries')
 
-# 创建地图图表
+# create map
 map_chart_money = alt.Chart(world_map).mark_geoshape(
     stroke='black'
 ).encode(
@@ -375,11 +374,11 @@ map_chart_money = alt.Chart(world_map).mark_geoshape(
              title='2023 Money Index across EU Countries'
 )
 
-# 添加选择交互
+# select country
 select_country = alt.selection_point(fields=['Country'], empty=False, value='EU')
 map_chart_money = map_chart_money.add_params(select_country)
 
-# 创建柱状图
+# bar chart
 bar_chart_money = alt.Chart(money_all).mark_bar(color='lavender').encode(
     x='year:N',
     y=alt.Y('MONEY:Q', title='MONEY Index', scale=alt.Scale(domain=[money_min-5, money_max+5], clamp=True)),
@@ -388,7 +387,7 @@ bar_chart_money = alt.Chart(money_all).mark_bar(color='lavender').encode(
     select_country
 )
 
-# 创建线图
+# line chart 
 line_chart_money = alt.Chart(money_all).mark_line(point=True, color='purple').encode(
     x='year:N',
     y=alt.Y('rank:Q', axis=alt.Axis(title='Country Rank'), scale=alt.Scale(domain=[30, 0])),
@@ -406,7 +405,7 @@ country_chart_money = (bar_chart_money + line_chart_money).resolve_scale(
     title = 'Index and Ranking of Selected Country over Time'
 )
 
-# 组合图表
+# combine money chart 
 part2_money = alt.hconcat(map_chart_money, country_chart_money).properties(
     config=alt.Config(legend=alt.LegendConfig(orient='left'))
 )
@@ -441,10 +440,10 @@ import pandas as pd
 import altair as alt
 from vega_datasets import data
 
-# 创建地图
+# introduce map 
 world_map = alt.topo_feature(data.world_110m.url, 'countries')
 
-# 创建地图图表
+# create map 
 map_chart_knowledge = alt.Chart(world_map).mark_geoshape(
     stroke='black'
 ).encode(
@@ -461,11 +460,11 @@ map_chart_knowledge = alt.Chart(world_map).mark_geoshape(
              title='2023 Knowledge Index across EU Countries'
 )
 
-# 添加选择交互
+# select country
 select_country = alt.selection_point(fields=['Country'], empty=False, value='EU')
 map_chart_knowledge = map_chart_knowledge.add_params(select_country)
 
-# 创建柱状图
+# bar chart 
 bar_chart_knowledge = alt.Chart(knowledge_all).mark_bar(color='lavender').encode(
     x='year:N',
     y=alt.Y('KNOWLEDGE:Q', title='KNOWLEDGE Index', scale=alt.Scale(domain=[knowledge_min-5, knowledge_max+5], clamp=True)),
@@ -474,7 +473,7 @@ bar_chart_knowledge = alt.Chart(knowledge_all).mark_bar(color='lavender').encode
     select_country
 )
 
-# 创建线图
+# line chart
 line_chart_knowledge = alt.Chart(knowledge_all).mark_line(point=True, color='purple').encode(
     x='year:N',
     y=alt.Y('rank:Q', axis=alt.Axis(title='Country Rank'), scale=alt.Scale(domain=[30, 0])),
@@ -492,7 +491,7 @@ country_chart_knowledge = (bar_chart_knowledge + line_chart_knowledge).resolve_s
     title = 'Index and Ranking of Selected Country over Time'
 )
 
-# 组合图表
+# combine knowledge chart 
 part2_knowledge = alt.hconcat(map_chart_knowledge, country_chart_knowledge).properties(
     config=alt.Config(legend=alt.LegendConfig(orient='left'))
 )
@@ -523,10 +522,10 @@ import pandas as pd
 import altair as alt
 from vega_datasets import data
 
-# 创建地图
+# introduce map 
 world_map = alt.topo_feature(data.world_110m.url, 'countries')
 
-# 创建地图图表
+# create map
 map_chart_time = alt.Chart(world_map).mark_geoshape(
     stroke='black'
 ).encode(
@@ -543,11 +542,11 @@ map_chart_time = alt.Chart(world_map).mark_geoshape(
              title='2023 Time Index across EU Countries'
 )
 
-# 添加选择交互
+# select country
 select_country = alt.selection_point(fields=['Country'], empty=False, value='EU')
 map_chart_time = map_chart_time.add_params(select_country)
 
-# 创建柱状图
+# bar chart 
 bar_chart_time = alt.Chart(time_all).mark_bar(color='lavender').encode(
     x='year:N',
     y=alt.Y('TIME:Q', title='TIME Index', scale=alt.Scale(domain=[time_min-5,time_max+5], clamp=True)),
@@ -556,7 +555,7 @@ bar_chart_time = alt.Chart(time_all).mark_bar(color='lavender').encode(
     select_country
 )
 
-# 创建线图
+# line chart 
 line_chart_time = alt.Chart(time_all).mark_line(point=True, color='purple').encode(
     x='year:N',
     y=alt.Y('rank:Q', axis=alt.Axis(title='Country Rank'), scale=alt.Scale(domain=[30, 0])),
@@ -574,7 +573,7 @@ country_chart_time = (bar_chart_time + line_chart_time).resolve_scale(
     title = 'Index and Ranking of Selected Country over Time'
 )
 
-# 组合图表
+# combine time chart
 part2_time = alt.hconcat(map_chart_time, country_chart_time).properties(
     config=alt.Config(legend=alt.LegendConfig(orient='left'))
 )
@@ -604,10 +603,10 @@ import pandas as pd
 import altair as alt
 from vega_datasets import data
 
-# 创建地图
+# introduce map 
 world_map = alt.topo_feature(data.world_110m.url, 'countries')
 
-# 创建地图图表
+# create map 
 map_chart_power = alt.Chart(world_map).mark_geoshape(
     stroke='black'
 ).encode(
@@ -624,11 +623,11 @@ map_chart_power = alt.Chart(world_map).mark_geoshape(
              title='2023 Power Index across EU Countries'
 )
 
-# 添加选择交互
+# select country 
 select_country = alt.selection_point(fields=['Country'], empty=False, value='EU')
 map_chart_power = map_chart_power.add_params(select_country)
 
-# 创建柱状图
+# bar chart 
 bar_chart_power = alt.Chart(power_all).mark_bar(color='lavender').encode(
     x='year:N',
     y=alt.Y('POWER:Q', title='POWER Index', scale=alt.Scale(domain=[power_min-5,power_max+5], clamp=True)),
@@ -637,7 +636,7 @@ bar_chart_power = alt.Chart(power_all).mark_bar(color='lavender').encode(
     select_country
 )
 
-# 创建线图
+# line chart
 line_chart_power = alt.Chart(power_all).mark_line(point=True, color='purple').encode(
     x='year:N',
     y=alt.Y('rank:Q', axis=alt.Axis(title='Country Rank'), scale=alt.Scale(domain=[30, 0])),
@@ -655,7 +654,7 @@ country_chart_power = (bar_chart_power + line_chart_power).resolve_scale(
     title = 'Index and Ranking of Selected Country over Time'
 )
 
-# 组合图表
+# combine power chart 
 part2_power = alt.hconcat(map_chart_power, country_chart_power).properties(
     config=alt.Config(legend=alt.LegendConfig(orient='left'))
 )
@@ -685,10 +684,10 @@ import pandas as pd
 import altair as alt
 from vega_datasets import data
 
-# 创建地图
+# introduce map 
 world_map = alt.topo_feature(data.world_110m.url, 'countries')
 
-# 创建地图图表
+# create map 
 map_chart_health = alt.Chart(world_map).mark_geoshape(
     stroke='black'
 ).encode(
@@ -705,11 +704,11 @@ map_chart_health = alt.Chart(world_map).mark_geoshape(
              title='2023 Health Index across EU Countries'
 )
 
-# 添加选择交互
+# select country 
 select_country = alt.selection_point(fields=['Country'], empty=False, value='EU')
 map_chart_health = map_chart_health.add_params(select_country)
 
-# 创建柱状图
+# bar chart 
 bar_chart_health = alt.Chart(health_all).mark_bar(color='lavender').encode(
     x='year:N',
     y=alt.Y('HEALTH:Q', title='HEALTH Index', scale=alt.Scale(domain=[health_min-5,health_max+5], clamp=True)),
@@ -718,7 +717,7 @@ bar_chart_health = alt.Chart(health_all).mark_bar(color='lavender').encode(
     select_country
 )
 
-# 创建线图
+# line chart
 line_chart_health = alt.Chart(health_all).mark_line(point=True, color='purple').encode(
     x='year:N',
     y=alt.Y('rank:Q', axis=alt.Axis(title='Country Rank'), scale=alt.Scale(domain=[30, 0])),
@@ -743,12 +742,12 @@ part2_health = alt.hconcat(map_chart_health, country_chart_health).properties(
 
 
 # dropdown
-# 设置字体大小为20px
+# set font size 20px
 
 #xiugai4
-# 将 CSS 样式应用到页面中
+# css
 
-# 显示 selectbox
+# show selectbox
 option = st.selectbox(
     'Choose A Dimension to Dive in:',
     ['WORK', 'MONEY', 'KNOWLEDGE', 'TIME', 'POWER', 'HEALTH']
@@ -758,7 +757,7 @@ option = st.selectbox(
 st.caption('<p style="font-size: 12px; color: grey;">Click to select a country on the left and observe its detailed evolution of index on a specified dimension on the right, bar chart for index and line chart for ranking.</p>', unsafe_allow_html=True)
 
 
-# 定义显示图表的函数
+# display function
 def display_chart(dimension):
     if dimension == 'WORK':
         st.altair_chart(part2_work, use_container_width=True)
@@ -773,7 +772,7 @@ def display_chart(dimension):
     elif dimension == 'HEALTH':
         st.altair_chart(part2_health, use_container_width=True)
 
-# 显示图表
+# display
 display_chart(option)
 
 
@@ -803,7 +802,7 @@ import streamlit as st
 import pandas as pd
 import altair as alt
 
-# 定义 category_mapping 和 name 列表
+# define category_mapping and name 
 category_mapping = {
     1: ('WORK', 'Participation', 'Segregation and quality of work'),
     2: ('MONEY', 'Financial resources', 'Economic situation'),
@@ -814,7 +813,7 @@ category_mapping = {
 }
 name = ['WORK', 'MONEY', 'KNOWLEDGE', 'TIME', 'POWER', 'HEALTH']
 
-# 占位符函数，需要替换为实际的数据提取功能
+# data
 def get_data(country_name, category):
     df_list = []
     for i, sheet_name in enumerate(index_file.sheet_names):
@@ -822,19 +821,19 @@ def get_data(country_name, category):
         df['Time'] = sheet_name[:4]
         category_names = category_mapping[category]
         df = df[df['Country'] == country_name]
-        df = df[['Time', 'Country'] + list(category_names)]  # 保留时间、国家和映射的类别名称的列
-        df_list.append(df)  # 添加到数据列表中
+        df = df[['Time', 'Country'] + list(category_names)] 
+        df_list.append(df)  
     return pd.concat(df_list)
 
-# 创建下拉菜单部件
+# dropdown options 
 country_dropdown = st.selectbox('Choose Country:', ['BE', 'BG', 'CZ', 'DK', 'DE', 'EE', 'IE', 'EL', 'ES', 'FR',
                                                     'HR', 'IT', 'CY', 'LV', 'LT', 'LU', 'HU', 'MT', 'NL',
                                                     'AT', 'PL', 'PT', 'RO', 'SI', 'SK', 'FI', 'SE'], index=9)
 
-# 创建一个字典用于存储图表对象
+
 charts = {}
 
-# 国家选择回调函数
+# change country function
 def on_country_change(country_name):
     country_category_data = {}
     for i in range(1, 7):
@@ -842,7 +841,7 @@ def on_country_change(country_name):
     for i in range(1, 7):
         country_category_data[i] = pd.DataFrame(country_category_data[i])
 
-    # 对每个类别的数据进行处理和可视化
+    # for each dimensions
     for i in range(1, 7):
         data = country_category_data[i]
         data = data.melt(id_vars=['Time', 'Country'], var_name='Category', value_name='Index')
@@ -883,14 +882,14 @@ def on_country_change(country_name):
             tooltip=['Country', 'Index', 'Category']
         )
 
-        # 可视化代码
+        # create chart
         chart = alt.layer(line, points).properties(
             title=name[i - 1],
             height=200,
-            width=300  # 设置图表宽度为300像素
+            width=300  
         ).interactive()
 
-        # 存储图表对象
+        # save chart
         charts[i] = chart
 
     first_row = alt.hconcat(charts[1], charts[2], charts[3])
@@ -899,7 +898,7 @@ def on_country_change(country_name):
     combined_chart = alt.vconcat(first_row, second_row)
     st.altair_chart(combined_chart)
 
-# 注册回调函数
+# register
 on_country_change(country_dropdown)
 
 #xiugai8
