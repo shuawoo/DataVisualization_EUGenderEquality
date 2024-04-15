@@ -170,7 +170,7 @@ style_h2 = """
 </style>
 """
 st.markdown(style_h2, unsafe_allow_html=True)
-st.markdown("<h2>Gender Equality from Different Perspectives</h2>", unsafe_allow_html=True)
+st.markdown("<h2>Gender Equality from Different Dimensions Across EU Countries</h2>", unsafe_allow_html=True)
 st.write(" ")
 st.markdown("<span style='font-size:18px;'>Starting from specific dimensions of the Gender Equality Index, we can observe the detailed performance of each EU member from various measurements.</span>", unsafe_allow_html=True)
 st.write(" ")
