@@ -161,7 +161,7 @@ st.write(" ")
 # H2 title
 style_h2 = """
 <style>
-#gender-equality-from-different-perspectives {
+#gender-equality-from-different-dimensions-across-eu-countries {
     text-align: center;
     font-size: 35px;
     text-align: left;
