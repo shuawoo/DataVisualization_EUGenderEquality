@@ -130,7 +130,7 @@ style_h2 = """
 </style>
 """
 st.markdown(style_h2, unsafe_allow_html=True)
-st.markdown("<h2>Overview of  EU Gender Equality in the Past Decade</h2>", unsafe_allow_html=True)
+st.markdown("<h2>Overview of EU Gender Equality in the Past Decade</h2>", unsafe_allow_html=True)
 
 # xiugai2
 st.markdown("<span style='font-size:18px;'>From the overall trend of the EU Gender Equality Index, the evolution of gender equality over the past decade is demonstrated with the internal rankings of EU members.</span>", unsafe_allow_html=True)
@@ -159,7 +159,7 @@ st.write(" ")
 
 #xiugai-5
 # H2 title
-style_h2 = 
+style_h2 = """
 <style>
 #gender-equality-from-different-perspectives {
     text-align: center;
@@ -168,7 +168,7 @@ style_h2 =
     color: purple;
 }
 </style>
-
+"""
 st.markdown(style_h2, unsafe_allow_html=True)
 st.markdown("<h2>Gender Equality from Different Dimensions across EU Countries</h2>", unsafe_allow_html=True)
 st.write(" ")
